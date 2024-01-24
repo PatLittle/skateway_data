@@ -42,7 +42,7 @@ new_df.insert(0, 'Current_Datetime', current_datetime)
 new_df = new_df.drop(columns=['type', 'geometry_type'])
 
 # Append the new data to the existing DataFrame
-combined_df = existing_df.append(new_df, ignore_index=True)
+combined_df = pd.concat([existing_df, new_df], ignore_index=True)
 
 # Save the combined DataFrame back to the CSV file
 combined_df.to_csv(csv_file_path, index=False)
