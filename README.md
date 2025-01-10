@@ -30,7 +30,17 @@ View the Data Data --> [![Static Badge](https://img.shields.io/badge/Open%20in%2
 This technique using Esri Dump should be reusable with a huge number of Geospatial datasets from the Open Maps collection on Open.Canada.ca.
 
 --------
+## 2024 Article
+
 ![image](https://github.com/user-attachments/assets/0ee1ea3d-0cac-47b3-8e8c-2f10c7fd1c74)
 
 * [LinkedIn Version](https://www.linkedin.com/pulse/opendatadays-geospatial-data-non-geo-users-patrick-little-mba-udclc/)
-* 
+
+
+-----------
+
+## 2025 Article
+
+![A_vibrant_and_dynamic_illustration_inspired_by_Avr](https://github.com/user-attachments/assets/c612a154-81ea-4459-85e1-0c3d032a2a70)
+
+
