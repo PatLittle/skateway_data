@@ -11,7 +11,9 @@
 
 
 
-The ice conditions data shown on the map can be accessed from the ESRI feature layer ![](https://img.shields.io/badge/esri-Feature%20Server-06a5f5?style=flat&logo=esri&logoColor=44c359&logoSize=auto&link=https%3A%2F%2Fservices2.arcgis.com%2FWLyMuW006nKOfa5Z%2FArcGIS%2Frest%2Fservices%2FRCS_Status_PUBLIC%2FFeatureServer%2F0)
+The ice conditions data shown on the map can be accessed from the ESRI feature layer  [![](https://img.shields.io/badge/esri-Feature%20Server-06a5f5?style=flat&logo=esri&logoColor=44c359&logoSize=auto&link=https%3A%2F%2Fservices2.arcgis.com%2FWLyMuW006nKOfa5Z%2FArcGIS%2Frest%2Fservices%2FRCS_Status_PUBLIC%2FFeatureServer%2F0)](https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/RCS_Status_PUBLIC/FeatureServer/0)
+
+
 [Esri Dump](https://pypi.org/project/esridump/). This allows you to quickly dump a ESRI REST endpoint to GeoJSON. 
 .
 ```python
@@ -53,5 +55,5 @@ This technique using Esri Dump should be reusable with a huge number of Geospati
 ## 2025 Article
 
 ![A_vibrant_and_dynamic_illustration_inspired_by_Avr](https://github.com/user-attachments/assets/c612a154-81ea-4459-85e1-0c3d032a2a70)
-
+ * [LinkedIn Version](https://www.linkedin.com/pulse/hey-sk8er-bois-data-gurls-patrick-little-mba-zivxc/)
 
