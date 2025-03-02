@@ -48,10 +48,10 @@ for commit in commits:
     previous_df = current_df.copy()
 
 # Generate SVG visualization
-cell_size = 10  # Size of each cell in pixels
-width = 30 * cell_size  # 30 days
-height = len(object_ids) * cell_size  # One row per OBJECTID
-dwg = svgwrite.Drawing('commit_graph.svg', profile='tiny', size=(width + 50, height + 20))
+ell_size = 10  # Adjust if needed
+height = len(object_ids) * cell_size
+width = some_value  # Replace with your width calculation
+dwg = svgwrite.Drawing('commit_graph.svg', profile='tiny', size=(f"{width + 50}px", f"{height + 20}px"))
 
 # Add day labels (day of month) at the top
 for j in range(30):
