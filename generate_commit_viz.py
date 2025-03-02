@@ -48,7 +48,7 @@ for commit in commits:
     previous_df = current_df.copy()
 
 # Generate SVG visualization
-ell_size = 10  # Adjust if needed
+cell_size = 10  # Adjust if needed
 height = len(object_ids) * cell_size
 width = some_value  # Replace with your width calculation
 dwg = svgwrite.Drawing('commit_graph.svg', profile='tiny', size=(f"{width + 50}px", f"{height + 20}px"))
