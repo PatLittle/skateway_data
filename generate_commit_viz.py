@@ -26,7 +26,7 @@ def get_csv_at_commit(commit):
 
 def all_closed(df):
     closed_statuses = {"Closed", "Closed for the season"}
-    return df['status'].isin(closed_statuses).all() if not df.empty else False
+    return df['status'].isin(closed_statuses).all() if not df.empty and 'status' in df.columns else False  # Added check for 'status' column
 
 # Status colors
 status_colors = {
@@ -75,7 +75,7 @@ for i, obj_id in enumerate(object_ids):
         
         if all_closed_day:
             fill_color = 'black'
-        elif not df.empty and obj_id in df.index:
+        elif not df.empty and obj_id in df.index and 'status' in df.columns:  # Added check for 'status' column
             status = df.at[obj_id, 'status']
             fill_color = status_colors.get(status, 'lightgray')
         else:
