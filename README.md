@@ -1,4 +1,8 @@
+## Commit History Visualization
 
+Below is a visualization of the commit history for `current_conditions.csv` over the last 30 days. Each row represents a `properties_OBJECTID`, and each column represents a day. Green cells indicate days when the data for that `properties_OBJECTID` was modified.
+
+![Commit Graph](commit_graph.svg)
 
 
 
