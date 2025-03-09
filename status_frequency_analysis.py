@@ -30,7 +30,7 @@ color_map = {
 # Create stacked bar chart
 fig = px.bar(status_counts, 
              barmode='stack',
-             title='Skateway Status Frequency Over Time (Last 100 Records)',
+             title='Skateway Status Over Time (Last 170 Records)',
              labels={'value': 'Count',
                     'Current_Datetime': 'Date',
                     'properties_Status': 'Status'},
