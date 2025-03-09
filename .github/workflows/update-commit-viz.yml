@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas gitpython svgwrite
+          pip install pandas gitpython svgwrite plotly
 
       - name: Generate visualization
         run: python status_frequency_analysis.py
