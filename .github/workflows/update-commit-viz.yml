@@ -23,12 +23,12 @@ jobs:
           pip install pandas gitpython svgwrite
 
       - name: Generate visualization
-        run: python generate_commit_viz.py
+        run: python status_frequency_analysis.py
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
-          git add status_graph.svg
+          git add *.svg *.html
           git diff --staged --quiet || git commit -m "Update commit visualization"
           git push
