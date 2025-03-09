@@ -1,8 +1,7 @@
-## Commit History Visualization
+## Status Frequency History
+Below is a visualization of the history for `current_conditions.csv` over the last 60 days. Each bar represents the breakdown `properties_Status`, across the 13 sections of the canal. `current_conditions.csv` is updated 3 times per day, therefore there are 3 bars per day. 
 
-Below is a visualization of the commit history for `current_conditions.csv` over the last 30 days. Each row represents a `properties_OBJECTID`, and each column represents a day. Green cells indicate days when the data for that `properties_OBJECTID` was modified.
-
-![Commit Graph](commit_graph.svg)
+![status](skateway_status_frequency.svg)
 
 
 
