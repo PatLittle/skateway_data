@@ -11,5 +11,5 @@
  * Here is an Google Collab notenook with an example to get started with: <a href="https://colab.research.google.com/gist/PatLittle/413eef25fae1d1a2e1d5be7ee38c79d0/dump-canal-esri.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
  * View the Data Data --> [![Static Badge](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/skateway_data)
 
- * Starting the data coolection for 2025, before the canal opens but after the server is setup with any changes, we can get the full seaon-long data running on a GH ACtion 3x/day
+ * Starting the data coolection for 2025, before the canal opens but after the server is setup with any changes, we can get the full season-long data running on a GH Action 3x/day
    
