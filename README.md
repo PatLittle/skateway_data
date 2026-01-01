@@ -1,9 +1,79 @@
-## Status Frequency History
-Below is a visualization of the history for `current_conditions.csv` over the last 60 days. Each bar represents the breakdown `properties_Status`, across the 13 sections of the canal. `current_conditions.csv` is updated 3 times per day, therefore there are 3 bars per day. 
+## Condition Status Map
+Below is a export of the current GeoJSON Map. 
 
-![status](skateway_status_frequency.svg)
+![status](skateway_status_map.png)
+The GeoJSON can be viewed as an interactive map at https://geojson.io/#id=github:PatLittle/skateway_data/blob/main/status_styled.geojson&map=13.23/45.40468/-75.69245
+
+## Mermaid Gantt Chart
 
 
+```mermaid
+---
+displayMode: compact
+config:
+  themeCSS: " #vg { fill: Green } #g {fill: yellow} #f {fill: orange} #p {fill: red}      \n
+#c {fill: Black} #cs {fill: Black} #sc {fill: White} #wo {fill: saddlebrown} \n
+            text[id^=cs] { fill: red; } text[id^=sc] { fill: red; } \n
+  todayMarker {stroke-width: 8px, stroke: #100ced, opacity: 1}
+        "
+  gantt:
+    useWidth: 1000
+    barGap: 0
+    barHeight: 18
+    tickInterval: '1day'
+    topAxis: true  #false
+    topPadding: 50
+    leftPadding: 100
+    numberSectionStyles: 2
+    titleTopMargin: 20
+    gridLineStartPadding: 10
+    bottomMarginAdj: 1
+    sectionFontSize: 12
+    
+---
+
+gantt
+  title Skateway segment statuses (2025-12)
+  dateFormat  YYYY-MM-DD HH:mm:ss
+  axisFormat  %Y %m %d
+  todayMarker stroke-width:5px,stroke:#00f,opacity:1
+  section Rideau-Mackenzie King
+  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  section Mackenzie King-Laurier
+  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  section Laurier-Waverley
+  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  section Waverley-Concord
+  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
+  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  section Concord-Pretoria
+  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
+  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  section Pretoria-Fifth
+  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
+  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  section Patterson Creek-Patterson Creek
+  Closed for the Season: cs, 2025-12-27 19:17:23, 2025-12-31 16:28:10
+  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  section Fifth-Lansdowne
+  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
+  Closed for the Season: cs, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  section Lansdowne-Bank
+  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
+  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  section Bank-Bronson
+  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
+  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  section Bronson-Dow's Lake
+  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  section Dow's Lake Loop
+  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  section Dow's Lake-Library
+  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  section Dow's Lake-Library
+  Closed: c, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+ 
+```
 
 [![PyPI - Version](https://img.shields.io/pypi/v/esridump?style=flat&label=PYPIesridump)](https://pypi.org/project/esridump/) [![](https://img.shields.io/badge/esri-Feature%20Server-06a5f5?style=flat&logo=esri&logoColor=44c359&logoSize=auto&link=https%3A%2F%2Fservices2.arcgis.com%2FWLyMuW006nKOfa5Z%2FArcGIS%2Frest%2Fservices%2FRCS_Status_PUBLIC%2FFeatureServer%2F0)](https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/RCS_Status_PUBLIC/FeatureServer/0)
  <a href="https://colab.research.google.com/gist/PatLittle/413eef25fae1d1a2e1d5be7ee38c79d0/dump-canal-esri.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>   [![Static Badge](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/skateway_data)
