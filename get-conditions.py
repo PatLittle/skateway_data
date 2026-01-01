@@ -154,3 +154,122 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+import pandas as pd
+
+# -------------------------------------------------
+# Source CSV (GitHub raw)
+# -------------------------------------------------
+CSV_URL = "https://raw.githubusercontent.com/PatLittle/skateway_data/main/current_conditions.csv"
+
+# -------------------------------------------------
+# Fixed test window
+# -------------------------------------------------
+START_UTC = pd.to_datetime("2025-12-29 00:00:00", utc=True)
+END_UTC   = pd.to_datetime("2025-12-31 23:59:59", utc=True)
+
+# -------------------------------------------------
+# Columns (explicit)
+# -------------------------------------------------
+DT_COL = "Current_Datetime"
+FROM_COL = "properties_From_"
+TO_COL = "properties_To_"
+ID_COL = "properties_ID"
+STATUS_COL = "properties_Status"
+
+# -------------------------------------------------
+# Status → task ID mapping (IDs are symbolic, not unique)
+# -------------------------------------------------
+STATUS_CODE = {
+    "Very Good": "vg",
+    "Good": "g",
+    "Fair": "f",
+    "Poor": "p",
+    "Snow Covered": "sc",
+    "Walking Only (Skateway closed)": "wo",
+    "Closed": "c",
+    "Closed for the Season": "cs",
+}
+UNKNOWN_CODE = "unk"
+
+# -------------------------------------------------
+# Load + parse
+# -------------------------------------------------
+df = pd.read_csv(CSV_URL)
+
+df[DT_COL] = pd.to_datetime(df[DT_COL], errors="coerce", utc=True)
+df = df.dropna(subset=[DT_COL])
+
+df = df[(df[DT_COL] >= START_UTC) & (df[DT_COL] <= END_UTC)].copy()
+
+df[ID_COL] = pd.to_numeric(df[ID_COL], errors="coerce").astype("Int64")
+df = df.dropna(subset=[ID_COL])
+df[ID_COL] = df[ID_COL].astype(int)
+
+df[STATUS_COL] = df[STATUS_COL].astype(str).str.strip()
+df["status_code"] = df[STATUS_COL].map(STATUS_CODE).fillna(UNKNOWN_CODE)
+
+df = df.sort_values([ID_COL, DT_COL])
+
+# -------------------------------------------------
+# Helper
+# -------------------------------------------------
+def fmt_ts(ts: pd.Timestamp) -> str:
+    return ts.strftime("%Y-%m-%d %H:%M:%S")
+
+# -------------------------------------------------
+# Build Mermaid Gantt
+# -------------------------------------------------
+lines = []
+lines.append("```mermaid")
+lines.append("---")
+lines.append("displayMode: compact")
+lines.append("---")
+lines.append("gantt")
+lines.append("  title Skateway segment statuses (2025-12)")
+lines.append("  dateFormat  YYYY-MM-DD HH:mm:ss")
+lines.append("  axisFormat  %Y %m %d")
+
+for pid, g in df.groupby(ID_COL, sort=True):
+    g = g.reset_index(drop=True)
+
+    # Section name = From->To (first non-empty in window)
+    from_val = next((v for v in g[FROM_COL] if str(v).strip()), "")
+    to_val   = next((v for v in g[TO_COL] if str(v).strip()), "")
+    section = f"{from_val}-{to_val}".strip("-") or "Unknown-Unknown"
+
+    lines.append(f"  section {section}")
+
+    run_start = g.loc[0, DT_COL]
+    run_status = g.loc[0, STATUS_COL]
+    run_code = g.loc[0, "status_code"]
+
+    for i in range(1, len(g)):
+        if g.loc[i, "status_code"] != run_code:
+            run_end = g.loc[i, DT_COL]
+            # TASK TEXT = STATUS (human-readable)
+            # TASK ID   = status code (vg, g, f, etc.)
+            lines.append(
+                f"  {run_status}: {run_code}, {fmt_ts(run_start)}, {fmt_ts(run_end)}"
+            )
+            run_start = g.loc[i, DT_COL]
+            run_status = g.loc[i, STATUS_COL]
+            run_code = g.loc[i, "status_code"]
+
+    # Final run extends to end of window
+    lines.append(
+        f"  {run_status}: {run_code}, {fmt_ts(run_start)}, {fmt_ts(END_UTC)}"
+    )
+
+lines.append("```")
+
+mermaid_md = "\n".join(lines)
+
+# -------------------------------------------------
+# Write to gantt.md
+# -------------------------------------------------
+with open("gantt.md", "w", encoding="utf-8") as f:
+    f.write(mermaid_md + "\n")
+
+print("Wrote gantt.md")
