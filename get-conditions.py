@@ -166,8 +166,8 @@ CSV_URL = "https://raw.githubusercontent.com/PatLittle/skateway_data/main/curren
 # -------------------------------------------------
 # Fixed test window
 # -------------------------------------------------
-START_UTC = pd.to_datetime("2025-12-29 00:00:00", utc=True)
-END_UTC   = pd.to_datetime("2025-12-31 23:59:59", utc=True)
+START_UTC = pd.to_datetime("2025-12-27 00:00:00", utc=True)
+END_UTC   = pd.to_datetime("2026-01-31 23:59:59", utc=True)
 
 # -------------------------------------------------
 # Columns (explicit)
@@ -221,11 +221,20 @@ def fmt_ts(ts: pd.Timestamp) -> str:
 # -------------------------------------------------
 # Build Mermaid Gantt
 # -------------------------------------------------
-lines = []
-lines.append("```mermaid")
-lines.append("---")
-lines.append("displayMode: compact")
-lines.append("---")
+header = """
+```mermaid
+---
+topAxis: true
+displayMode: compact
+config:
+  themeCSS: " #vg { fill: Green } #g {fill: yellow} #f {fill: orange} #p {fill: red}      \\n
+#c {fill: Black} #cs {fill: Black} #sc {fill: White} #wo {fill: saddlebrown} \\n
+            text[id^=cs] { fill: red; } text[id^=sc] { fill: red; }
+        "
+---
+"""
+lines = [header]
+
 lines.append("gantt")
 lines.append("  title Skateway segment statuses (2025-12)")
 lines.append("  dateFormat  YYYY-MM-DD HH:mm:ss")
