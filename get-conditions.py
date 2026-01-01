@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone
 
 import json
 from esridump.dumper import EsriDumper
@@ -167,8 +167,7 @@ CSV_URL = "https://raw.githubusercontent.com/PatLittle/skateway_data/main/curren
 # Fixed test window
 # -------------------------------------------------
 START_UTC = pd.to_datetime("2025-12-27 00:00:00", utc=True)
-END_UTC   = pd.to_datetime("2026-01-31 23:59:59", utc=True)
-
+END_UTC   = datetime.now(timezone.utc)
 # -------------------------------------------------
 # Columns (explicit)
 # -------------------------------------------------
