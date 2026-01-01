@@ -15,38 +15,31 @@ gantt
   dateFormat  YYYY-MM-DD HH:mm:ss
   axisFormat  %Y %m %d
   section Rideau-Mackenzie King
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Mackenzie King-Laurier
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
-  section Laurier-Waverley
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-01 14:52:27
+  section Laurier-Somerset
+  Closed: c, 2025-12-31 21:07:33, 2026-01-01 14:52:27
+  section Somerset-Waverley
+  Fair: f, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Waverley-Concord
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Fair: f, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Concord-Pretoria
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Fair: f, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Pretoria-Fifth
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Poor: p, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Patterson Creek-Patterson Creek
-  Closed for the Season: cs, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Closed for the Season: cs, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Fifth-Lansdowne
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Closed for the Season: cs, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Poor: p, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Lansdowne-Bank
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Poor: p, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Bank-Bronson
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Bronson-Dow's Lake
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Dow's Lake Loop-Dow's Lake Loop
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-01 14:52:27
   section Dow's Lake-Library
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
-  section Dow's Lake-Library
-  Closed: c, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-01 14:52:27
 ```
