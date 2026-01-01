@@ -166,7 +166,7 @@ CSV_URL = "https://raw.githubusercontent.com/PatLittle/skateway_data/main/curren
 # -------------------------------------------------
 # Fixed test window
 # -------------------------------------------------
-START_UTC = pd.to_datetime("2025-12-27 00:00:00", utc=True)
+START_UTC = pd.to_datetime("2025-12-31 18:00:00", utc=True)
 END_UTC   = datetime.now(timezone.utc)
 # -------------------------------------------------
 # Columns (explicit)
