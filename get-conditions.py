@@ -281,3 +281,82 @@ with open("gantt.md", "w", encoding="utf-8") as f:
     f.write(mermaid_md + "\n")
 
 print("Wrote gantt.md")
+
+import json
+import pandas as pd
+import plotly.express as px
+
+
+
+url = "https://github.com/PatLittle/skateway_data/raw/refs/heads/main/status_styled.geojson"
+
+# --- load geojson (requests) ---
+import requests
+gj = requests.get(url, timeout=30).json()
+
+# Build a small table that links each feature to a row via OBJECTID (or ID)
+rows = []
+for f in gj["features"]:
+    p = f.get("properties", {})
+    rows.append({
+        "OBJECTID": p.get("OBJECTID"),
+        "ID": p.get("ID"),
+        "Status": p.get("Status"),
+        "From": p.get("From_"),
+        "To": p.get("To_"),
+        "fill": p.get("fill"),  # already a hex like "#000000"
+    })
+df = pd.DataFrame(rows)
+
+# Make a status->color map using the GeoJSON's own "fill" values
+status_color_map = (
+    df.dropna(subset=["Status", "fill"])
+      .drop_duplicates("Status")
+      .set_index("Status")["fill"]
+      .to_dict()
+)
+
+fig = px.choropleth_mapbox(
+    df,
+    geojson=gj,
+    featureidkey="properties.OBJECTID",  # ties geojson feature -> df row
+    locations="OBJECTID",
+    color="Status",
+    color_discrete_map=status_color_map,
+    hover_data={"Status": True, "From": True, "To": True, "OBJECTID": True, "fill": False},
+    mapbox_style="carto-positron",
+    opacity=0.6,
+    center={"lat": 45.41, "lon": -75.69},
+    zoom=13.75,
+)
+
+fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+
+
+from datetime import datetime
+
+rendered_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+fig.update_layout(
+    title=dict(
+        text=f"Skateway Segment Statuses — rendered {rendered_at}",
+        x=0.5,
+        y=0.95,
+        xanchor="center",
+        font=dict(size=32)  # matches doubled legend scale nicely
+    ),
+    legend=dict(
+        x=0.01,
+        y=0.01,
+        xanchor="left",
+        yanchor="bottom",
+        font=dict(size=28)
+    )
+)
+
+fig.write_image(
+    "skateway_status_map.png",
+    width=1600,
+    height=1200,
+    scale=2
+)
