@@ -226,10 +226,12 @@ header = """
 topAxis: true
 displayMode: compact
 config:
-  themeCSS: " #vg { fill: Green } #g {fill: yellow} #f {fill: orange} #p {fill: red}      \\n
-#c {fill: Black} #cs {fill: Black} #sc {fill: White} #wo {fill: saddlebrown} \\n
-            text[id^=cs] { fill: red; } text[id^=sc] { fill: red; }
+  themeCSS: " #vg { fill: Green } #g {fill: GreenYellow} #f {fill: orange} #p {fill: red}      \n
+#c {fill: Black} #cs {fill: Black} #sc {fill: White} #wo {fill: saddlebrown} \n
+             text[id^=c] { fill: white; } text[id^=cs] { fill: red; } text[id^=sc] { fill: red; }
+            .taskTextOutsideRight[id^=sc] { fill:black; text-anchor: end; }
         "
+
 ---
 """
 lines = [header]
@@ -282,6 +284,59 @@ with open("gantt.md", "w", encoding="utf-8") as f:
 
 print("Wrote gantt.md")
 
+#-----------------------
+# Write gantt to README
+#-------------
+
+from pathlib import Path
+
+def replace_gantt_section(
+    target_md: str | Path,
+    source_md: str | Path,
+    start_marker: str = "<!-- GANTT START -->",
+    end_marker: str = "<!-- GANTT END -->",
+) -> None:
+    """
+    Replace the content between GANTT markers in target_md
+    with the full contents of source_md.
+
+    The markers themselves are noted preserved.
+    """
+
+    target_md = Path(target_md)
+    source_md = Path(source_md)
+
+    target_text = target_md.read_text(encoding="utf-8")
+    source_text = source_md.read_text(encoding="utf-8").rstrip()
+
+    if start_marker not in target_text or end_marker not in target_text:
+        raise ValueError("GANTT markers not found in target file")
+
+    before, rest = target_text.split(start_marker, 1)
+    _, after = rest.split(end_marker, 1)
+
+    new_text = (
+        before
+        + start_marker
+        + "\n\n"
+        + source_text
+        + "\n\n"
+        + end_marker
+        + after
+    )
+
+    target_md.write_text(new_text, encoding="utf-8")
+
+replace_gantt_section(
+    target_md="README.md",
+    source_md="gantt.md"
+)
+
+
+
+#---------
+# README MAP
+#----------
 import json
 import pandas as pd
 import plotly.express as px
