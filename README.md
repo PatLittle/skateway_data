@@ -7,73 +7,156 @@ The GeoJSON can be viewed as an interactive map at https://geojson.io/#id=github
 ## Mermaid Gantt Chart
 
 <!-- GANTT START -->
+
+
 ```mermaid
 ---
+topAxis: true
 displayMode: compact
 config:
-  themeCSS: " #vg { fill: Green } #g {fill: yellow} #f {fill: orange} #p {fill: red}      \n
-#c {fill: Black} #cs {fill: Black} #sc {fill: White} #wo {fill: saddlebrown} \n
-            text[id^=cs] { fill: red; } text[id^=sc] { fill: red; } \n
-  todayMarker {stroke-width: 8px, stroke: #100ced, opacity: 1}
+  themeCSS: " #vg { fill: Green } #g {fill: GreenYellow} #f {fill: orange} #p {fill: red}      
+
+#c {fill: Black} #cs {fill: Black} #sc {fill: White} #wo {fill: saddlebrown} 
+
+             text[id^=c] { fill: white; } text[id^=cs] { fill: red; } text[id^=sc] { fill: red; }
+            .taskTextOutsideRight[id^=sc] { fill:black; text-anchor: end; }
         "
-  gantt:
-    useWidth: 1000
-    barGap: 0
-    barHeight: 18
-    tickInterval: '1day'
-    topAxis: true  #false
-    topPadding: 50
-    leftPadding: 100
-    numberSectionStyles: 2
-    titleTopMargin: 20
-    gridLineStartPadding: 10
-    bottomMarginAdj: 1
-    sectionFontSize: 12
-    
+
 ---
 
 gantt
-  title Skateway segment statuses (2025-12)
+  title Skateway segment statuses (2026-01)
   dateFormat  YYYY-MM-DD HH:mm:ss
   axisFormat  %Y %m %d
-  todayMarker stroke-width:5px,stroke:#00f,opacity:1
   section Rideau-Mackenzie King
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-03 16:27:35
+  Good: g, 2026-01-03 16:27:35, 2026-01-05 16:29:55
+  Very Good: vg, 2026-01-05 16:29:55, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Mackenzie King-Laurier
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
-  section Laurier-Waverley
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-03 16:27:35
+  Good: g, 2026-01-03 16:27:35, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
+  section Laurier-Somerset
+  Closed: c, 2025-12-31 21:07:33, 2026-01-03 16:27:35
+  Good: g, 2026-01-03 16:27:35, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
+  section Somerset-Waverley
+  Fair: f, 2025-12-31 21:07:33, 2026-01-02 16:28:08
+  Good: g, 2026-01-02 16:28:08, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Waverley-Concord
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Fair: f, 2025-12-31 21:07:33, 2026-01-01 14:52:27
+  Good: g, 2026-01-01 14:52:27, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Concord-Pretoria
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Fair: f, 2025-12-31 21:07:33, 2026-01-01 14:52:27
+  Good: g, 2026-01-01 14:52:27, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Pretoria-Fifth
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Fair: f, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Poor: p, 2025-12-31 21:07:33, 2026-01-01 14:52:27
+  Good: g, 2026-01-01 14:52:27, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Patterson Creek-Patterson Creek
-  Closed for the Season: cs, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Closed for the Season: cs, 2025-12-31 21:07:33, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-09 16:30:59
+  Closed for the Season: cs, 2026-01-09 16:30:59, 2026-01-10 19:40:03
   section Fifth-Lansdowne
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Closed for the Season: cs, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Poor: p, 2025-12-31 21:07:33, 2026-01-01 14:52:27
+  Good: g, 2026-01-01 14:52:27, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Lansdowne-Bank
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Poor: p, 2025-12-31 21:07:33, 2026-01-01 14:52:27
+  Fair: f, 2026-01-01 14:52:27, 2026-01-02 16:28:08
+  Good: g, 2026-01-02 16:28:08, 2026-01-04 16:26:52
+  Very Good: vg, 2026-01-04 16:26:52, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Very Good: vg, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Good: g, 2026-01-08 01:51:39, 2026-01-09 01:52:12
+  Fair: f, 2026-01-09 01:52:12, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Bank-Bronson
-  Closed: c, 2025-12-27 19:17:23, 2025-12-31 16:28:10
-  Poor: p, 2025-12-31 16:28:10, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-05 16:29:55
+  Poor: p, 2026-01-05 16:29:55, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Fair: f, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Fair: f, 2026-01-08 01:51:39, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Bronson-Dow's Lake
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
-  section Dow's Lake Loop
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
+  Closed: c, 2025-12-31 21:07:33, 2026-01-05 16:29:55
+  Fair: f, 2026-01-05 16:29:55, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Good: g, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Fair: f, 2026-01-08 01:51:39, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
+  section Dow's Lake Loop-Dow's Lake Loop
+  Closed: c, 2025-12-31 21:07:33, 2026-01-05 16:29:55
+  Fair: f, 2026-01-05 16:29:55, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Good: g, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Fair: f, 2026-01-08 01:51:39, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
   section Dow's Lake-Library
-  Closed: c, 2025-12-27 19:17:23, 2026-01-01 08:31:42
-  section Dow's Lake-Library
-  Closed: c, 2025-12-31 16:28:10, 2026-01-01 08:31:42
- 
+  Closed: c, 2025-12-31 21:07:33, 2026-01-05 16:29:55
+  Fair: f, 2026-01-05 16:29:55, 2026-01-06 01:51:43
+  Snow Covered: sc, 2026-01-06 01:51:43, 2026-01-06 16:31:50
+  Good: g, 2026-01-06 16:31:50, 2026-01-07 16:33:13
+  Snow Covered: sc, 2026-01-07 16:33:13, 2026-01-08 01:51:39
+  Fair: f, 2026-01-08 01:51:39, 2026-01-09 08:33:47
+  Closed: c, 2026-01-09 08:33:47, 2026-01-10 19:40:03
 ```
+
 <!-- GANTT END -->
 
 [![PyPI - Version](https://img.shields.io/pypi/v/esridump?style=flat&label=PYPIesridump)](https://pypi.org/project/esridump/) [![](https://img.shields.io/badge/esri-Feature%20Server-06a5f5?style=flat&logo=esri&logoColor=44c359&logoSize=auto&link=https%3A%2F%2Fservices2.arcgis.com%2FWLyMuW006nKOfa5Z%2FArcGIS%2Frest%2Fservices%2FRCS_Status_PUBLIC%2FFeatureServer%2F0)](https://services2.arcgis.com/WLyMuW006nKOfa5Z/ArcGIS/rest/services/RCS_Status_PUBLIC/FeatureServer/0)
