@@ -237,7 +237,7 @@ config:
 lines = [header]
 
 lines.append("gantt")
-lines.append("  title Skateway segment statuses (2025-12)")
+lines.append("  title Skateway segment statuses (2026-01)")
 lines.append("  dateFormat  YYYY-MM-DD HH:mm:ss")
 lines.append("  axisFormat  %Y %m %d")
 
