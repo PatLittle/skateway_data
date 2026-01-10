@@ -6,7 +6,7 @@ The GeoJSON can be viewed as an interactive map at https://geojson.io/#id=github
 
 ## Mermaid Gantt Chart
 
-<!--GANTT START -->
+<!-- GANTT START -->
 ```mermaid
 ---
 displayMode: compact
