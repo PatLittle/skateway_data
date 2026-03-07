@@ -29,7 +29,11 @@ jobs:
           pip install -r requirements.txt
       
       - name: execute py script         
-        run:  python get-conditions.py
+        run: |
+          python get-conditions.py
+          python build_status_map_history_gif.py --file skateway_dataskateway_status_map.png --durations 15 60 --out-dir .
+          
+        
           
           
       - name: commit files
