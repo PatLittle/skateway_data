@@ -1,0 +1,55 @@
+name: update canal conditions gif
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 */8 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ Checkout WITH FULL HISTORY + LFS
+      - name: Checkout repo with history
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0        # <-- REQUIRED for image history
+          #lfs: true             # <-- REQUIRED if images use Git LFS
+          persist-credentials: true
+
+      # ✅ Ensure LFS files are actually present
+      - name: Fetch Git LFS files
+        run: git lfs pull
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install Python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ✅ Your script can now access historical image versions
+      - name: Execute history GIF builder
+        run: |
+          python build_status_map_history_gif.py \
+            --file skateway_data/skateway_status_map.png \
+            --durations 15 60 \
+            --out-dir .
+
+      # ✅ Commit only if something actually changed
+      - name: Commit generated files
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update canal condition history GIF"
+            git push
+          fi
