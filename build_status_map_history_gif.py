@@ -49,9 +49,9 @@ def resolve_repo_file(repo_file: str) -> str:
 # Image processing
 # -----------------------
 
-MAX_WIDTH = 900        # 🔥 biggest size lever
+MAX_WIDTH = 900        #  biggest size lever
 PALETTE_COLORS = 128   # 64–128 recommended
-SIMILARITY_THRESHOLD = 6.0
+SIMILARITY_THRESHOLD = 2.0
 
 
 def downscale(img: Image.Image) -> Image.Image:
